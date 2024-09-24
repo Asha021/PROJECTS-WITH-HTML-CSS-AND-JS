@@ -1,2 +1,1 @@
-# calculatar
-It build with a HTML,CSS AND JS.
+# Projects With HTML,CSS AND JS
