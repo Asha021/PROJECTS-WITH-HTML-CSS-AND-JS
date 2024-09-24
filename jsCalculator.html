@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>go</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background-color: rgb(176, 228, 210);
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+
+        .frame {
+            height: 80%;
+            width: 30%;
+            background-color: rgb(99, 92, 92);
+            border: 1px solid black;
+            align-items: center;
+            justify-content: space-evenly;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .a {
+            height: 15%;
+            width: 85%;
+            background-color: rgb(53, 47, 47);
+            box-shadow: 0px 10px 100px rgb(255, 255, 255, .5);
+            font-size: 2rem;
+            text-align: right;
+            padding-right: 10px;
+        }
+
+        .b {
+            height: 68%;
+            width: 85%;
+            background-color: rgb(53, 47, 47);
+            user-select: none;
+        }
+
+        button {
+            height: 70px;
+            width: 82.5px;
+            border-radius: 42px;
+            font-size: 1.5rem;
+            background-color: rgb(41, 40, 40);
+            color: white;
+        }
+
+        #aa {
+            height: 60px;
+            width: 170px;
+        }
+
+        #m {
+            background-color: rgb(192, 139, 41);
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <input type="text" placeholder="0" disabled class="a" id="result">
+        <div class="b">
+            <button onclick="cal(this.value)" value="+">+</button>
+            <button onclick="cal(this.value)" value="-">-</button>
+            <button onclick="cal(this.value)" value="%">%</button>
+            <button onclick="cal(this.value)" value="*" id="m">*</button>
+            <button onclick="cal(this.value)" value="9">9</button>
+            <button onclick="cal(this.value)" value="8">8</button>
+            <button onclick="cal(this.value)" value="7">7</button>
+            <button onclick="cal(this.value)" value="AC" id="m">AC</button>
+            <button onclick="cal(this.value)" value="6">6</button>
+            <button onclick="cal(this.value)" value="5">5</button>
+            <button onclick="cal(this.value)" value="4">4</button>
+            <button onclick="cal(this.value)" value="/" id="m">/</button>
+            <button onclick="cal(this.value)" value="3">3</button>
+            <button onclick="cal(this.value)" value="2">2</button>
+            <button onclick="cal(this.value)" value="1">1</button>
+            <button onclick="cal(this.value)" value="00" id="m">00</button>
+            <button onclick="cal(this.value)" value="c" id="aa">c</button>
+            <button onclick="cal(this.value)" value="=" id="aa">=</button>
+        </div>
+    </div>
+    <script>
+        var result = document.getElementById('result')
+        function cal(val) {
+            if (val == '=') {
+                result.value = eval(result.value)
+            } else if (val == 'c') {
+                var C = result.value;
+                result.value = C.slice(0, -1);
+            } else if (val == 'AC') {
+                result.value = '';
+            }
+            else {
+                result.value += val;                                                                                                                        
+            }
+        }
+    </script>
+</body>
+
+</html>
